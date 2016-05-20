@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ForoViewDlg" widgetVar="ForoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewForoTitle}">
+            <h:form id="ForoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{foroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewForoLabel_id}"/>
+                        <h:outputText value="#{foroController.selected.id}" title="#{bundle.ViewForoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewForoLabel_tema}"/>
+                        <h:outputText value="#{foroController.selected.tema}" title="#{bundle.ViewForoTitle_tema}"/>
+                        <h:outputText value="#{bundle.ViewForoLabel_fechaPublicacion}"/>
+                        <h:outputText value="#{foroController.selected.fechaPublicacion}" title="#{bundle.ViewForoTitle_fechaPublicacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewForoLabel_usuarioId}"/>
+                        <h:outputText value="#{foroController.selected.usuarioId}" title="#{bundle.ViewForoTitle_usuarioId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ForoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

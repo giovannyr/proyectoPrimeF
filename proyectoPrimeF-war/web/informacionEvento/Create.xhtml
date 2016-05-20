@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InformacionEventoCreateDlg" widgetVar="InformacionEventoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInformacionEventoTitle}">
+            <h:form id="InformacionEventoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{informacionEventoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateInformacionEventoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{informacionEventoController.selected.id}" title="#{bundle.CreateInformacionEventoTitle_id}" required="true" requiredMessage="#{bundle.CreateInformacionEventoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateInformacionEventoLabel_tipoRecurso}" for="tipoRecurso" />
+                        <p:inputText id="tipoRecurso" value="#{informacionEventoController.selected.tipoRecurso}" title="#{bundle.CreateInformacionEventoTitle_tipoRecurso}" required="true" requiredMessage="#{bundle.CreateInformacionEventoRequiredMessage_tipoRecurso}"/>
+                        <p:outputLabel value="#{bundle.CreateInformacionEventoLabel_eventoId}" for="eventoId" />
+                        <p:selectOneMenu id="eventoId" value="#{informacionEventoController.selected.eventoId}" required="true" requiredMessage="#{bundle.EditInformacionEventoRequiredMessage_eventoId}">
+                            <f:selectItems value="#{eventoController.itemsAvailableSelectOne}"
+                                           var="eventoIdItem"
+                                           itemValue="#{eventoIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{informacionEventoController.create}" value="#{bundle.Save}" update="display,:InformacionEventoListForm:datalist,:growl" oncomplete="handleSubmit(args,'InformacionEventoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InformacionEventoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

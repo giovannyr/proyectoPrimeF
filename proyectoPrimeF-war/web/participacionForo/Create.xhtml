@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ParticipacionForoCreateDlg" widgetVar="ParticipacionForoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateParticipacionForoTitle}">
+            <h:form id="ParticipacionForoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{participacionForoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateParticipacionForoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{participacionForoController.selected.id}" title="#{bundle.CreateParticipacionForoTitle_id}" required="true" requiredMessage="#{bundle.CreateParticipacionForoRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateParticipacionForoLabel_participacion}" for="participacion" />
+                        <p:inputTextarea rows="4" cols="30" id="participacion" value="#{participacionForoController.selected.participacion}" title="#{bundle.CreateParticipacionForoTitle_participacion}" required="true" requiredMessage="#{bundle.CreateParticipacionForoRequiredMessage_participacion}"/>
+                        <p:outputLabel value="#{bundle.CreateParticipacionForoLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{participacionForoController.selected.fecha}" title="#{bundle.EditParticipacionForoTitle_fecha}" required="true" requiredMessage="#{bundle.EditParticipacionForoRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateParticipacionForoLabel_foroId}" for="foroId" />
+                        <p:selectOneMenu id="foroId" value="#{participacionForoController.selected.foroId}" required="true" requiredMessage="#{bundle.EditParticipacionForoRequiredMessage_foroId}">
+                            <f:selectItems value="#{foroController.itemsAvailableSelectOne}"
+                                           var="foroIdItem"
+                                           itemValue="#{foroIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateParticipacionForoLabel_usuarioId}" for="usuarioId" />
+                        <p:selectOneMenu id="usuarioId" value="#{participacionForoController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditParticipacionForoRequiredMessage_usuarioId}">
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="usuarioIdItem"
+                                           itemValue="#{usuarioIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{participacionForoController.create}" value="#{bundle.Save}" update="display,:ParticipacionForoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ParticipacionForoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ParticipacionForoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

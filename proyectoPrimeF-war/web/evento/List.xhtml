@@ -27,27 +27,30 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEventoTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEventoTitle_nombre}"/>
+                                <!--<h:outputText value="#{bundle.ListEventoTitle_nombre}"/>-->
+                                <h:outputText value="Nombre del Evento"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEventoTitle_tipo}"/>
+                                <!--<h:outputText value="#{bundle.ListEventoTitle_tipo}"/>-->
+                                <h:outputText value="Tipo de Evento"/>
                             </f:facet>
                             <h:outputText value="#{item.tipo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEventoTitle_fechaInicio}"/>
+                                <!--<h:outputText value="#{bundle.ListEventoTitle_fechaInicio}"/>-->
+                                <h:outputText value="Fecha Inicio"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaInicio}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -55,7 +58,8 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEventoTitle_fechaFin}"/>
+                                <!--<h:outputText value="#{bundle.ListEventoTitle_fechaFin}"/>-->
+                                <h:outputText value="Fecha Terminacion"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaFin}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -63,9 +67,11 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEventoTitle_usuarioId}"/>
+                                <!--<h:outputText value="#{bundle.ListEventoTitle_usuarioId}"/>-->
+                                <h:outputText value="Creado Por"/>
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <!--<h:outputText value="#{item.usuarioId}"/>-->
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{eventoController.prepareCreate}" update=":EventoCreateForm" oncomplete="PF('EventoCreateDialog').show()"/>

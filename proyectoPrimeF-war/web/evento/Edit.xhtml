@@ -12,12 +12,12 @@
             <h:form id="EventoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{eventoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditEventoLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{eventoController.selected.id}" title="#{bundle.EditEventoTitle_id}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditEventoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{eventoController.selected.nombre}" title="#{bundle.EditEventoTitle_nombre}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditEventoLabel_tipo}" for="tipo" />
-                        <p:inputText id="tipo" value="#{eventoController.selected.tipo}" title="#{bundle.EditEventoTitle_tipo}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_tipo}"/>
+                        <p:selectOneMenu id="tipo" value="#{eventoController.selected.tipo}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_tipo}">
+                            <f:selectItems value="#{eventoController.getTiposEvento()}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditEventoLabel_fechaInicio}" for="fechaInicio" />
                         <p:calendar id="fechaInicio" pattern="MM/dd/yyyy HH:mm:ss" value="#{eventoController.selected.fechaInicio}" title="#{bundle.EditEventoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fechaInicio}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditEventoLabel_fechaFin}" for="fechaFin" />
@@ -38,3 +38,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.EditEventoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{eventoController.selected.id}" title="#{bundle.EditEventoTitle_id}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_id}"/>-->
+                        <!--<p:inputText id="tipo" value="#{eventoController.selected.tipo}" title="#{bundle.EditEventoTitle_tipo}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_tipo}"/>-->

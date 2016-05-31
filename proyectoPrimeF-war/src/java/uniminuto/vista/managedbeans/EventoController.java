@@ -7,7 +7,9 @@ import uniminuto.vista.managedbeans.util.JsfUtil.PersistAction;
 import uniminuto.sessions.EventoFacade;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -157,6 +159,17 @@ public class EventoController implements Serializable {
             }
         }
 
+    }
+    
+    
+    // lista tipos de evento
+    public Map<String, Object> getTiposEvento(){
+        Map<String, Object> tiposEvento = new LinkedHashMap<>();
+        tiposEvento.put("Musical", "Musical");
+        tiposEvento.put("Empresarial", "Empresarial");
+        tiposEvento.put("Festival", "Festival");
+        tiposEvento.put("Feria", "Feria");
+        return tiposEvento;
     }
 
 }

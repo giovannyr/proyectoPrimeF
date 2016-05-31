@@ -158,5 +158,16 @@ public class UsuarioController implements Serializable {
         }
 
     }
+    
+    // buscar por id
+    public String getById(int id){
+        String nombre = "";
+        List<Usuario> lus = getFacade().findAll();
+        for (Usuario user : lus) {
+            if(user.getId() == id)
+                nombre = user.getNombre();
+        }        
+        return nombre;
+    }
 
 }

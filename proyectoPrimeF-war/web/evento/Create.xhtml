@@ -12,12 +12,13 @@
             <h:form id="EventoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{eventoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEventoLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{eventoController.selected.id}" title="#{bundle.CreateEventoTitle_id}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_id}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateEventoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{eventoController.selected.nombre}" title="#{bundle.CreateEventoTitle_nombre}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateEventoLabel_tipo}" for="tipo" />
-                        <p:inputText id="tipo" value="#{eventoController.selected.tipo}" title="#{bundle.CreateEventoTitle_tipo}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_tipo}"/>
+                        <p:selectOneMenu id="tipo" value="#{eventoController.selected.tipo}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_tipo}">
+                            <f:selectItems value="#{eventoController.getTiposEvento()}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEventoLabel_fechaInicio}" for="fechaInicio" />
                         <p:calendar id="fechaInicio" pattern="MM/dd/yyyy HH:mm:ss" value="#{eventoController.selected.fechaInicio}" title="#{bundle.EditEventoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditEventoRequiredMessage_fechaInicio}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEventoLabel_fechaFin}" for="fechaFin" />
@@ -37,3 +38,5 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:inputText id="tipo" value="#{eventoController.selected.tipo}" title="#{bundle.CreateEventoTitle_tipo}" required="true" requiredMessage="#{bundle.CreateEventoRequiredMessage_tipo}"/>-->

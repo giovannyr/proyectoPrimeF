@@ -217,9 +217,13 @@ public class Usuario implements Serializable {
         return true;
     }
 
+//    @Override
+//    public String toString() {
+//        return "uniminuto.entities.Usuario[ id=" + id + " ]";
+//    }
     @Override
     public String toString() {
-        return "uniminuto.entities.Usuario[ id=" + id + " ]";
+        return nombre;
     }
     
 }

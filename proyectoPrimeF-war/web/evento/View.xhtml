@@ -12,8 +12,6 @@
             <h:form id="EventoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{eventoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewEventoLabel_id}"/>
-                        <h:outputText value="#{eventoController.selected.id}" title="#{bundle.ViewEventoTitle_id}"/>
                         <h:outputText value="#{bundle.ViewEventoLabel_nombre}"/>
                         <h:outputText value="#{eventoController.selected.nombre}" title="#{bundle.ViewEventoTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewEventoLabel_tipo}"/>
@@ -26,8 +24,8 @@
                         <h:outputText value="#{eventoController.selected.fechaFin}" title="#{bundle.ViewEventoTitle_fechaFin}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewEventoLabel_usuarioId}"/>
-                        <h:outputText value="#{eventoController.selected.usuarioId}" title="#{bundle.ViewEventoTitle_usuarioId}"/>
+                        <h:outputText value="Usuario"/>
+                        <h:outputText value="#{usuarioController.getById(eventoController.selected.usuarioId.id)}" title="#{bundle.ViewEventoTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EventoViewDialog.hide()"/>
                 </h:panelGroup>
@@ -36,3 +34,8 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewEventoLabel_id}"/>
+                        <h:outputText value="#{eventoController.selected.id}" title="#{bundle.ViewEventoTitle_id}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewEventoLabel_usuarioId}"/>-->
+                        <!--<h:outputText value="#{eventoController.selected.usuarioId}" title="#{bundle.ViewEventoTitle_usuarioId}"/>-->

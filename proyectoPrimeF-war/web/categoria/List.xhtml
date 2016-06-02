@@ -27,12 +27,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategoriaTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategoriaTitle_categoria}"/>
@@ -41,15 +41,18 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_calificacion}"/>
+                                <h:outputText value="Puntos de calificacion"/>
+                                <!--<h:outputText value="#{bundle.ListCategoriaTitle_calificacion}"/>-->
                             </f:facet>
                             <h:outputText value="#{item.calificacion}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_usuarioId}"/>
+                                <h:outputText value="Creada por"/>
+                                <!--<h:outputText value="#{bundle.ListCategoriaTitle_usuarioId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
+                            <!--<h:outputText value="#{item.usuarioId}"/>-->
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{categoriaController.prepareCreate}" update=":CategoriaCreateForm" oncomplete="PF('CategoriaCreateDialog').show()"/>

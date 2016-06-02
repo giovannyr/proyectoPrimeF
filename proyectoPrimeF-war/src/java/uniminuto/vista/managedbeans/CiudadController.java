@@ -7,7 +7,9 @@ import uniminuto.vista.managedbeans.util.JsfUtil.PersistAction;
 import uniminuto.sessions.CiudadFacade;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -157,6 +159,18 @@ public class CiudadController implements Serializable {
             }
         }
 
+    }
+    
+    
+    // lista 
+    public Map<String, Object> listaContinentes(){
+        Map<String, Object> lista = new LinkedHashMap<>();
+        lista.put("America", "America");
+        lista.put("Europa", "Europa");
+        lista.put("Africa", "Africa");
+        lista.put("Asia", "Asia");
+        lista.put("Oceania", "Oceania");
+        return lista;
     }
 
 }

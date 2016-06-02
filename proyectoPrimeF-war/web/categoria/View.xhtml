@@ -12,14 +12,12 @@
             <h:form id="CategoriaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoriaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewCategoriaLabel_id}"/>
-                        <h:outputText value="#{categoriaController.selected.id}" title="#{bundle.ViewCategoriaTitle_id}"/>
                         <h:outputText value="#{bundle.ViewCategoriaLabel_categoria}"/>
                         <h:outputText value="#{categoriaController.selected.categoria}" title="#{bundle.ViewCategoriaTitle_categoria}"/>
-                        <h:outputText value="#{bundle.ViewCategoriaLabel_calificacion}"/>
+                        <h:outputText value="Puntos"/>
                         <h:outputText value="#{categoriaController.selected.calificacion}" title="#{bundle.ViewCategoriaTitle_calificacion}"/>
                         <h:outputText value="#{bundle.ViewCategoriaLabel_usuarioId}"/>
-                        <h:outputText value="#{categoriaController.selected.usuarioId}" title="#{bundle.ViewCategoriaTitle_usuarioId}"/>
+                        <h:outputText value="#{usuarioController.getById(categoriaController.selected.usuarioId.id)}" title="#{bundle.ViewCategoriaTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CategoriaViewDialog.hide()"/>
                 </h:panelGroup>
@@ -28,3 +26,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewCategoriaLabel_id}"/>
+                        <h:outputText value="#{categoriaController.selected.id}" title="#{bundle.ViewCategoriaTitle_id}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewCategoriaLabel_calificacion}"/>-->

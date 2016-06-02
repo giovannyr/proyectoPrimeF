@@ -7,7 +7,9 @@ import uniminuto.vista.managedbeans.util.JsfUtil.PersistAction;
 import uniminuto.sessions.CategoriaFacade;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -157,6 +159,19 @@ public class CategoriaController implements Serializable {
             }
         }
 
+    }
+    
+    
+    
+    // lista calificaciones
+    public Map<String, Object> listarCalificaciones(){
+        Map<String, Object> lista = new LinkedHashMap<>();
+        lista.put("Por debajo del promedio", "1");
+        lista.put("Aceptable", "2");
+        lista.put("Bueno", "3");
+        lista.put("Muy bueno", "4");
+        lista.put("Excelente", "5");
+        return lista;
     }
 
 }

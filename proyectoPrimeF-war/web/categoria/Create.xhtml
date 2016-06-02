@@ -12,13 +12,15 @@
             <h:form id="CategoriaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoriaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCategoriaLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{categoriaController.selected.id}" title="#{bundle.CreateCategoriaTitle_id}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateCategoriaLabel_categoria}" for="categoria" />
                         <p:inputText id="categoria" value="#{categoriaController.selected.categoria}" title="#{bundle.CreateCategoriaTitle_categoria}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_categoria}"/>
                         <p:outputLabel value="#{bundle.CreateCategoriaLabel_calificacion}" for="calificacion" />
-                        <p:inputText id="calificacion" value="#{categoriaController.selected.calificacion}" title="#{bundle.CreateCategoriaTitle_calificacion}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_calificacion}"/>
-                        <p:outputLabel value="#{bundle.CreateCategoriaLabel_usuarioId}" for="usuarioId" />
+                        <p:selectOneMenu id="calificacion" value="#{categoriaController.selected.calificacion}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_calificacion}">
+                            <f:selectItems value="#{categoriaController.listarCalificaciones()}"
+                                           var="calificacionItem"
+                                           itemValue="#{calificacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Usuario" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{categoriaController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_usuarioId}">
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
                                            var="usuarioIdItem"
@@ -33,3 +35,8 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.CreateCategoriaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{categoriaController.selected.id}" title="#{bundle.CreateCategoriaTitle_id}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_id}"/>-->
+                        <!--<p:inputText id="calificacion" value="#{categoriaController.selected.calificacion}" title="#{bundle.CreateCategoriaTitle_calificacion}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_calificacion}"/>-->
+                        <!--<p:outputLabel value="#{bundle.CreateCategoriaLabel_usuarioId}" for="usuarioId" />-->

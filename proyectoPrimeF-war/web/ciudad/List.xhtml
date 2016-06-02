@@ -27,15 +27,16 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCiudadTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCiudadTitle_nombre}"/>
+                                <h:outputText value="Nombre ciudad"/>
+                                <!--<h:outputText value="#{bundle.ListCiudadTitle_nombre}"/>-->
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
@@ -53,9 +54,11 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCiudadTitle_usuarioId}"/>
+                                <h:outputText value="Creada por"/>
+                                <!--<h:outputText value="#{bundle.ListCiudadTitle_usuarioId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <!--<h:outputText value="#{item.usuarioId}"/>-->
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{ciudadController.prepareCreate}" update=":CiudadCreateForm" oncomplete="PF('CiudadCreateDialog').show()"/>

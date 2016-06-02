@@ -8,17 +8,21 @@
 
     <ui:composition>
 
-        <p:dialog id="CiudadCreateDlg" widgetVar="CiudadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCiudadTitle}">
+        <p:dialog id="CiudadCreateDlg" widgetVar="CiudadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="CREAR NUEVA CIUDAD">
+        <!--<p:dialog id="CiudadCreateDlg" widgetVar="CiudadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCiudadTitle}">-->
             <h:form id="CiudadCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ciudadController.selected != null}">
-                        
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{ciudadController.selected.nombre}" title="#{bundle.CreateCiudadTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_pais}" for="pais" />
                         <p:inputText id="pais" value="#{ciudadController.selected.pais}" title="#{bundle.CreateCiudadTitle_pais}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_pais}"/>
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_continente}" for="continente" />
-                        <p:inputText id="continente" value="#{ciudadController.selected.continente}" title="#{bundle.CreateCiudadTitle_continente}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_continente}"/>
+                        <p:selectOneMenu id="continente" value="#{ciudadController.selected.continente}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_continente}">
+                            <f:selectItems value="#{ciudadController.listaContinentes()}"
+                                           var="ciudadItem"
+                                           itemValue="#{ciudadItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateCiudadLabel_usuarioId}" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{ciudadController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_usuarioId}">
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
@@ -34,3 +38,5 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:inputText id="continente" value="#{ciudadController.selected.continente}" title="#{bundle.CreateCiudadTitle_continente}" required="true" requiredMessage="#{bundle.CreateCiudadRequiredMessage_continente}"/>-->

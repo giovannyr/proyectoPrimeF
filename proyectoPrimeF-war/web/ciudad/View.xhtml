@@ -12,16 +12,14 @@
             <h:form id="CiudadViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ciudadController.selected != null}">
-                        <h:outputText value="#{bundle.ViewCiudadLabel_id}"/>
-                        <h:outputText value="#{ciudadController.selected.id}" title="#{bundle.ViewCiudadTitle_id}"/>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_nombre}"/>
+                        <h:outputText value="Ciudad"/>
                         <h:outputText value="#{ciudadController.selected.nombre}" title="#{bundle.ViewCiudadTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewCiudadLabel_pais}"/>
                         <h:outputText value="#{ciudadController.selected.pais}" title="#{bundle.ViewCiudadTitle_pais}"/>
                         <h:outputText value="#{bundle.ViewCiudadLabel_continente}"/>
                         <h:outputText value="#{ciudadController.selected.continente}" title="#{bundle.ViewCiudadTitle_continente}"/>
-                        <h:outputText value="#{bundle.ViewCiudadLabel_usuarioId}"/>
-                        <h:outputText value="#{ciudadController.selected.usuarioId}" title="#{bundle.ViewCiudadTitle_usuarioId}"/>
+                        <h:outputText value="Creado por"/>
+                        <h:outputText value="#{usuarioController.getById(ciudadController.selected.usuarioId.id)}" title="#{bundle.ViewCiudadTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CiudadViewDialog.hide()"/>
                 </h:panelGroup>
@@ -30,3 +28,9 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewCiudadLabel_id}"/>
+                        <h:outputText value="#{ciudadController.selected.id}" title="#{bundle.ViewCiudadTitle_id}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewCiudadLabel_nombre}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewCiudadLabel_usuarioId}"/>-->
+                        <!--<h:outputText value="#{ciudadController.selected.usuarioId}" title="#{bundle.ViewCiudadTitle_usuarioId}"/>-->

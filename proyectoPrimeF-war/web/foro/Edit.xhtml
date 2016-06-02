@@ -12,13 +12,11 @@
             <h:form id="ForoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{foroController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditForoLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{foroController.selected.id}" title="#{bundle.EditForoTitle_id}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditForoLabel_tema}" for="tema" />
                         <p:inputTextarea rows="4" cols="30" id="tema" value="#{foroController.selected.tema}" title="#{bundle.EditForoTitle_tema}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_tema}"/>
                         <p:outputLabel value="#{bundle.EditForoLabel_fechaPublicacion}" for="fechaPublicacion" />
                         <p:calendar id="fechaPublicacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{foroController.selected.fechaPublicacion}" title="#{bundle.EditForoTitle_fechaPublicacion}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_fechaPublicacion}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditForoLabel_usuarioId}" for="usuarioId" />
+                        <p:outputLabel value="Usuario:" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{foroController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_usuarioId}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
@@ -34,3 +32,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.EditForoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{foroController.selected.id}" title="#{bundle.EditForoTitle_id}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_id}"/>-->
+                        <!--<p:outputLabel value="#{bundle.EditForoLabel_usuarioId}" for="usuarioId" />-->

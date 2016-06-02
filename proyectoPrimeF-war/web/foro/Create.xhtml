@@ -8,17 +8,16 @@
 
     <ui:composition>
 
-        <p:dialog id="ForoCreateDlg" widgetVar="ForoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateForoTitle}">
+        <p:dialog id="ForoCreateDlg" widgetVar="ForoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="CREAR NUEVO FORO">
+        <!--<p:dialog id="ForoCreateDlg" widgetVar="ForoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateForoTitle}">-->
             <h:form id="ForoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{foroController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateForoLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{foroController.selected.id}" title="#{bundle.CreateForoTitle_id}" required="true" requiredMessage="#{bundle.CreateForoRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateForoLabel_tema}" for="tema" />
                         <p:inputTextarea rows="4" cols="30" id="tema" value="#{foroController.selected.tema}" title="#{bundle.CreateForoTitle_tema}" required="true" requiredMessage="#{bundle.CreateForoRequiredMessage_tema}"/>
                         <p:outputLabel value="#{bundle.CreateForoLabel_fechaPublicacion}" for="fechaPublicacion" />
                         <p:calendar id="fechaPublicacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{foroController.selected.fechaPublicacion}" title="#{bundle.EditForoTitle_fechaPublicacion}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_fechaPublicacion}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateForoLabel_usuarioId}" for="usuarioId" />
+                        <p:outputLabel value="Usuario" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{foroController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditForoRequiredMessage_usuarioId}">
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
                                            var="usuarioIdItem"
@@ -33,3 +32,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.CreateForoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{foroController.selected.id}" title="#{bundle.CreateForoTitle_id}" required="true" requiredMessage="#{bundle.CreateForoRequiredMessage_id}"/>-->
+                        <!--<p:outputLabel value="#{bundle.CreateForoLabel_usuarioId}" for="usuarioId" />-->

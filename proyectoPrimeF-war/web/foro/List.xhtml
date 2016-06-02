@@ -27,12 +27,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListForoTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListForoTitle_tema}"/>
@@ -41,7 +41,8 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListForoTitle_fechaPublicacion}"/>
+                                <h:outputText value="Fecha publicacion"/>
+                                <!--<h:outputText value="#{bundle.ListForoTitle_fechaPublicacion}"/>-->
                             </f:facet>
                             <h:outputText value="#{item.fechaPublicacion}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -49,9 +50,10 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListForoTitle_usuarioId}"/>
+                                <h:outputText value="Usuario publico"/>
+                                <!--<h:outputText value="#{bundle.ListForoTitle_usuarioId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{foroController.prepareCreate}" update=":ForoCreateForm" oncomplete="PF('ForoCreateDialog').show()"/>

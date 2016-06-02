@@ -7,7 +7,9 @@ import uniminuto.vista.managedbeans.util.JsfUtil.PersistAction;
 import uniminuto.sessions.UsuarioFacade;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -168,6 +170,14 @@ public class UsuarioController implements Serializable {
                 nombre = user.getNombre();
         }        
         return nombre;
+    }
+    
+    
+    public Map<String, Object> obtenerRoles(){
+        Map<String, Object> list = new LinkedHashMap<>();
+        list.put("Administrador", "ADMIN");
+        list.put("Usuario", "USER");        
+        return list;
     }
 
 }

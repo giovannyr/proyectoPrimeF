@@ -12,16 +12,14 @@
             <h:form id="ForoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{foroController.selected != null}">
-                        <h:outputText value="#{bundle.ViewForoLabel_id}"/>
-                        <h:outputText value="#{foroController.selected.id}" title="#{bundle.ViewForoTitle_id}"/>
                         <h:outputText value="#{bundle.ViewForoLabel_tema}"/>
                         <h:outputText value="#{foroController.selected.tema}" title="#{bundle.ViewForoTitle_tema}"/>
                         <h:outputText value="#{bundle.ViewForoLabel_fechaPublicacion}"/>
                         <h:outputText value="#{foroController.selected.fechaPublicacion}" title="#{bundle.ViewForoTitle_fechaPublicacion}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewForoLabel_usuarioId}"/>
-                        <h:outputText value="#{foroController.selected.usuarioId}" title="#{bundle.ViewForoTitle_usuarioId}"/>
+                        <h:outputText value="Usuario:"/>
+                        <h:outputText value="#{usuarioController.getById(foroController.selected.usuarioId.id)}" title="#{bundle.ViewForoTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ForoViewDialog.hide()"/>
                 </h:panelGroup>
@@ -30,3 +28,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewForoLabel_id}"/>
+                        <h:outputText value="#{foroController.selected.id}" title="#{bundle.ViewForoTitle_id}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewForoLabel_usuarioId}"/>-->

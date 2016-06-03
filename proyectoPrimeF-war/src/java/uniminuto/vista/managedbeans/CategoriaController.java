@@ -173,5 +173,17 @@ public class CategoriaController implements Serializable {
         lista.put("Excelente", "5");
         return lista;
     }
+    
+    
+    // buscar por id
+    public String getById(int id){
+        String nombre = "";
+        List<Categoria> lus = getFacade().findAll();
+        for (Categoria cat : lus) {
+            if(cat.getId() == id)
+                nombre = cat.getCategoria();
+        }        
+        return nombre;
+    }
 
 }

@@ -12,18 +12,16 @@
             <h:form id="HotelEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{hotelController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditHotelLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{hotelController.selected.id}" title="#{bundle.EditHotelTitle_id}" required="true" requiredMessage="#{bundle.EditHotelRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditHotelLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{hotelController.selected.nombre}" title="#{bundle.EditHotelTitle_nombre}" required="true" requiredMessage="#{bundle.EditHotelRequiredMessage_nombre}"/>
-                        <p:outputLabel value="#{bundle.EditHotelLabel_categoriaId}" for="categoriaId" />
+                        <p:outputLabel value="Categoria" for="categoriaId" />
                         <p:selectOneMenu id="categoriaId" value="#{hotelController.selected.categoriaId}" required="true" requiredMessage="#{bundle.EditHotelRequiredMessage_categoriaId}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"
                                            var="categoriaIdItem"
                                            itemValue="#{categoriaIdItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditHotelLabel_usuarioId}" for="usuarioId" />
+                        <p:outputLabel value="Usuario" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{hotelController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditHotelRequiredMessage_usuarioId}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
@@ -39,3 +37,8 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.EditHotelLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{hotelController.selected.id}" title="#{bundle.EditHotelTitle_id}" required="true" requiredMessage="#{bundle.EditHotelRequiredMessage_id}"/>-->
+                        <!--<p:outputLabel value="#{bundle.EditHotelLabel_categoriaId}" for="categoriaId" />-->
+                        <!--<p:outputLabel value="#{bundle.EditHotelLabel_usuarioId}" for="usuarioId" />-->

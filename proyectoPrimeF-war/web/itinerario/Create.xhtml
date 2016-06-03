@@ -8,17 +8,16 @@
 
     <ui:composition>
 
-        <p:dialog id="ItinerarioCreateDlg" widgetVar="ItinerarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateItinerarioTitle}">
+        <p:dialog id="ItinerarioCreateDlg" widgetVar="ItinerarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="CREAR NUEVO ITINERARIO">
+        <!--<p:dialog id="ItinerarioCreateDlg" widgetVar="ItinerarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateItinerarioTitle}">-->
             <h:form id="ItinerarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itinerarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateItinerarioLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{itinerarioController.selected.id}" title="#{bundle.CreateItinerarioTitle_id}" required="true" requiredMessage="#{bundle.CreateItinerarioRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateItinerarioLabel_fechaInicio}" for="fechaInicio" />
                         <p:calendar id="fechaInicio" pattern="MM/dd/yyyy HH:mm:ss" value="#{itinerarioController.selected.fechaInicio}" title="#{bundle.EditItinerarioTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditItinerarioRequiredMessage_fechaInicio}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateItinerarioLabel_fechaFin}" for="fechaFin" />
                         <p:calendar id="fechaFin" pattern="MM/dd/yyyy HH:mm:ss" value="#{itinerarioController.selected.fechaFin}" title="#{bundle.EditItinerarioTitle_fechaFin}" required="true" requiredMessage="#{bundle.EditItinerarioRequiredMessage_fechaFin}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateItinerarioLabel_usuarioId}" for="usuarioId" />
+                        <p:outputLabel value="Usuario" for="usuarioId" />
                         <p:selectOneMenu id="usuarioId" value="#{itinerarioController.selected.usuarioId}" required="true" requiredMessage="#{bundle.EditItinerarioRequiredMessage_usuarioId}">
                             <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
                                            var="usuarioIdItem"
@@ -33,3 +32,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<p:outputLabel value="#{bundle.CreateItinerarioLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{itinerarioController.selected.id}" title="#{bundle.CreateItinerarioTitle_id}" required="true" requiredMessage="#{bundle.CreateItinerarioRequiredMessage_id}"/>-->
+                        <!--<p:outputLabel value="#{bundle.CreateItinerarioLabel_usuarioId}" for="usuarioId" />-->

@@ -133,9 +133,13 @@ public class Categoria implements Serializable {
         return true;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "uniminuto.entities.Categoria[ id=" + id + " ]";
+    }*/
+    @Override
+    public String toString() {
+        return categoria;
     }
     
 }

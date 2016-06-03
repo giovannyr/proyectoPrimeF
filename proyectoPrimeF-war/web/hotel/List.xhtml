@@ -15,7 +15,8 @@
 
         <ui:define name="body">
             <h:form id="HotelListForm">
-                <p:panel header="#{bundle.ListHotelTitle}">
+                <p:panel header="LISTA HOTELES">
+                <!--<p:panel header="#{bundle.ListHotelTitle}">-->
                     <p:dataTable id="datalist" value="#{hotelController.items}" var="item"
                                  selectionMode="single" selection="#{hotelController.selected}"
                                  paginator="true"
@@ -27,12 +28,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHotelTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListHotelTitle_nombre}"/>
@@ -41,15 +42,17 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListHotelTitle_categoriaId}"/>
+                                <h:outputText value="Categoria"/>
+                                <!--<h:outputText value="#{bundle.ListHotelTitle_categoriaId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.categoriaId}"/>
+                            <h:outputText value="#{categoriaController.getById(item.categoriaId.id)}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListHotelTitle_usuarioId}"/>
+                                <h:outputText value="Creado por"/>
+                                <!--<h:outputText value="#{bundle.ListHotelTitle_usuarioId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{hotelController.prepareCreate}" update=":HotelCreateForm" oncomplete="PF('HotelCreateDialog').show()"/>

@@ -15,7 +15,8 @@
 
         <ui:define name="body">
             <h:form id="ItinerarioListForm">
-                <p:panel header="#{bundle.ListItinerarioTitle}">
+                <p:panel header="ITINERARIO">
+                <!--<p:panel header="#{bundle.ListItinerarioTitle}">-->
                     <p:dataTable id="datalist" value="#{itinerarioController.items}" var="item"
                                  selectionMode="single" selection="#{itinerarioController.selected}"
                                  paginator="true"
@@ -27,12 +28,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <!--<p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListItinerarioTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListItinerarioTitle_fechaInicio}"/>
@@ -51,9 +52,10 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListItinerarioTitle_usuarioId}"/>
+                                <h:outputText value="Usuario"/>
+                                <!--<h:outputText value="#{bundle.ListItinerarioTitle_usuarioId}"/>-->
                             </f:facet>
-                            <h:outputText value="#{item.usuarioId}"/>
+                            <h:outputText value="#{usuarioController.getById(item.usuarioId.id)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{itinerarioController.prepareCreate}" update=":ItinerarioCreateForm" oncomplete="PF('ItinerarioCreateDialog').show()"/>

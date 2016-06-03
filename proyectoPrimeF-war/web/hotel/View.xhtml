@@ -12,14 +12,12 @@
             <h:form id="HotelViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{hotelController.selected != null}">
-                        <h:outputText value="#{bundle.ViewHotelLabel_id}"/>
-                        <h:outputText value="#{hotelController.selected.id}" title="#{bundle.ViewHotelTitle_id}"/>
                         <h:outputText value="#{bundle.ViewHotelLabel_nombre}"/>
                         <h:outputText value="#{hotelController.selected.nombre}" title="#{bundle.ViewHotelTitle_nombre}"/>
-                        <h:outputText value="#{bundle.ViewHotelLabel_categoriaId}"/>
-                        <h:outputText value="#{hotelController.selected.categoriaId}" title="#{bundle.ViewHotelTitle_categoriaId}"/>
-                        <h:outputText value="#{bundle.ViewHotelLabel_usuarioId}"/>
-                        <h:outputText value="#{hotelController.selected.usuarioId}" title="#{bundle.ViewHotelTitle_usuarioId}"/>
+                        <h:outputText value="Categoria"/>
+                        <h:outputText value="#{categoriaController.getById(hotelController.selected.categoriaId.id)}" title="#{bundle.ViewHotelTitle_categoriaId}"/>
+                        <h:outputText value="Usuario"/>
+                        <h:outputText value="#{usuarioController.getById(hotelController.selected.usuarioId.id)}" title="#{bundle.ViewHotelTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="HotelViewDialog.hide()"/>
                 </h:panelGroup>
@@ -28,3 +26,8 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewHotelLabel_id}"/>
+                        <h:outputText value="#{hotelController.selected.id}" title="#{bundle.ViewHotelTitle_id}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewHotelLabel_categoriaId}"/>-->
+                        <!--<h:outputText value="#{bundle.ViewHotelLabel_usuarioId}"/>-->

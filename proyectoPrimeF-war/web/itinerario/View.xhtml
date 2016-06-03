@@ -12,8 +12,6 @@
             <h:form id="ItinerarioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{itinerarioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewItinerarioLabel_id}"/>
-                        <h:outputText value="#{itinerarioController.selected.id}" title="#{bundle.ViewItinerarioTitle_id}"/>
                         <h:outputText value="#{bundle.ViewItinerarioLabel_fechaInicio}"/>
                         <h:outputText value="#{itinerarioController.selected.fechaInicio}" title="#{bundle.ViewItinerarioTitle_fechaInicio}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -22,8 +20,8 @@
                         <h:outputText value="#{itinerarioController.selected.fechaFin}" title="#{bundle.ViewItinerarioTitle_fechaFin}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewItinerarioLabel_usuarioId}"/>
-                        <h:outputText value="#{itinerarioController.selected.usuarioId}" title="#{bundle.ViewItinerarioTitle_usuarioId}"/>
+                        <h:outputText value="Usuario"/>
+                        <h:outputText value="#{usuarioController.getById(itinerarioController.selected.usuarioId.id)}" title="#{bundle.ViewItinerarioTitle_usuarioId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ItinerarioViewDialog.hide()"/>
                 </h:panelGroup>
@@ -32,3 +30,7 @@
 
     </ui:composition>
 </html>
+
+                        <!--<h:outputText value="#{bundle.ViewItinerarioLabel_id}"/>
+                        <h:outputText value="#{itinerarioController.selected.id}" title="#{bundle.ViewItinerarioTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewItinerarioLabel_usuarioId}"/>-->
